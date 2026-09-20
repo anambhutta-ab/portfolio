@@ -1,17 +1,22 @@
 import { useEffect, useRef } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import projects from '../data/projects'
 
 const featuredProjects = projects.slice(0, 3)
 
-function ProjectLink({ href, label, disabled = false }) {
+function ProjectLink({ href, label, disabled = false, internal = false }) {
   const className = disabled
     ? 'cursor-not-allowed text-zinc-600'
     : 'text-teal-400 transition-colors hover:text-teal-300'
 
   if (disabled) {
     return <span className={className} aria-disabled="true">{label}</span>
+  }
+
+  if (internal) {
+    return <Link className={className} to={href}>{label}</Link>
   }
 
   return <a className={className} href={href}>{label}</a>
@@ -46,7 +51,7 @@ function FeaturedCard({ project }) {
           <div className="mt-5"><StackTags stack={project.stack} /></div>
           <div className="mt-auto flex flex-wrap gap-x-4 gap-y-2 border-t border-zinc-800 pt-5 text-sm font-medium">
             <ProjectLink href={project.liveUrl} label="Live Demo" disabled={!project.liveUrl} />
-            <ProjectLink href={project.caseStudyPath} label="Case Study" />
+            <ProjectLink href={`/projects/${project.id}`} label="Case Study" internal />
           </div>
         </div>
       </article>
@@ -114,7 +119,7 @@ function Projects() {
               <div className="mt-auto flex flex-wrap gap-x-4 gap-y-2 border-t border-zinc-800 pt-5 text-sm font-medium">
                 <ProjectLink href={project.liveUrl} label="Live Demo" disabled={!project.liveUrl} />
                 <ProjectLink href={project.githubUrl} label="GitHub" disabled={!project.githubUrl} />
-                <ProjectLink href={project.caseStudyPath} label="Case Study" />
+                <ProjectLink href={`/projects/${project.id}`} label="Case Study" internal />
               </div>
             </div>
           </motion.article>

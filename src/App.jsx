@@ -1,3 +1,4 @@
+import { Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -6,9 +7,10 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ProjectCaseStudy from './components/ProjectCaseStudy'
 import './App.css'
 
-function App() {
+function Portfolio() {
   return (
     <Layout>
       <Hero />
@@ -21,6 +23,15 @@ function App() {
       </div>
       <Footer />
     </Layout>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/projects/:slug" element={<ProjectCaseStudy />} />
+    </Routes>
   )
 }
 
