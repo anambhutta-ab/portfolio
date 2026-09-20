@@ -1,4 +1,5 @@
 import Layout from './components/Layout'
+import Hero from './components/Hero'
 import './App.css'
 
 const sections = [
@@ -11,14 +12,7 @@ const sections = [
 function App() {
   return (
     <Layout>
-      <section id="top" className="hero mx-auto flex min-h-screen max-w-6xl items-center px-6 pb-20 pt-32 lg:px-8">
-        <div className="hero-copy max-w-3xl">
-          <p className="eyebrow mb-6 text-sm font-medium uppercase tracking-[0.2em] text-teal-400">Hello, I&apos;m Anam</p>
-          <h1 className="text-5xl font-semibold leading-[1.05] tracking-tight text-zinc-100 sm:text-7xl">I build thoughtful digital experiences.</h1>
-          <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">A developer focused on creating clear, useful, and human-centered products for the web.</p>
-          <a className="hero-button mt-10 inline-flex items-center rounded-md bg-teal-400 px-5 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-400" href="#projects">View my work <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </section>
+      <Hero />
 
       <div className="section-list mx-auto max-w-6xl px-6 lg:px-8">
         {sections.map((section) => (
