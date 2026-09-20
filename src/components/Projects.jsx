@@ -23,6 +23,14 @@ function ProjectLink({ href, label, disabled = false, internal = false }) {
 }
 
 function ProjectImage({ project }) {
+  if (project.image) {
+    return (
+      <div className="aspect-[16/9] overflow-hidden bg-zinc-900">
+        <img className="h-full w-full object-cover" src={project.image} alt={`${project.title} preview`} />
+      </div>
+    )
+  }
+
   return (
     <div className="flex aspect-[16/9] items-end bg-gradient-to-br from-teal-400/30 via-zinc-800 to-zinc-950 p-5" role="img" aria-label={`${project.title} image placeholder`}>
       <span className="max-w-xs text-lg font-semibold text-zinc-100">{project.title}</span>
@@ -80,7 +88,7 @@ function Projects() {
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.1, ease: 'easeOut' }}
     >
       <p className="eyebrow text-sm font-medium uppercase tracking-[0.2em] text-teal-400">03 / Projects</p>
       <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">Selected work</h2>
@@ -88,7 +96,6 @@ function Projects() {
       <div className="mt-10">
         <div className="mb-5 flex items-center justify-between">
           <h3 className="text-lg font-medium text-zinc-200">Featured Projects</h3>
-          <span className="text-xs uppercase tracking-[0.16em] text-zinc-600">Auto-scrolling</span>
         </div>
         <div
           className="overflow-hidden"
@@ -108,7 +115,7 @@ function Projects() {
           <motion.article
             className="group flex flex-col overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/40"
             key={project.id}
-            whileHover={{ y: -6, boxShadow: '0 14px 40px rgba(45, 212, 191, 0.12)' }}
+            whileHover={{ y: -6, boxShadow: '0 14px 40px rgba(0, 133, 140, 0.12)' }}
             transition={{ duration: 0.2, ease: 'easeOut' }}
           >
             <ProjectImage project={project} />

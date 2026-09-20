@@ -4,7 +4,7 @@ const experiences = [
   {
     title: 'AI/ML Developer',
     company: 'Freelance / Self-employed',
-    dates: '2024 - Present',
+    dates: '2025 - Present',
     bullets: [
       'Built document-grounded RAG chatbots for business knowledge and FAQs.',
       'Developed FastAPI backends for LLM and machine learning workflows.',
@@ -13,31 +13,26 @@ const experiences = [
   },
   {
     title: 'Backend Engineering Intern',
-    company: 'Company name · Placeholder',
-    dates: '2023 - 2024',
+    company: 'Netsol Technologies · Lahore, Pakistan',
+    dates: 'August 2025 - September 2025',
     bullets: [
       'Implemented REST endpoints and data processing workflows with Python.',
-      'Collaborated on testing, debugging, and maintainable backend improvements.',
+      'Supported integration between Flutter application workflows and FastAPI backend services.',
+      'Collaborated in an Agile development environment while following coding standards.'
     ],
   },
   {
-    title: 'Software Engineering, COMSATS University',
-    company: 'Bachelor of Science in Software Engineering',
-    dates: '2020 - 2024',
+    title: 'Final Year Project - Machine Learning',
+    company: 'Software Engineering, COMSATS University',
+    dates: '2025 - 2026',
     bullets: [
       'Focused coursework and projects on software engineering, AI/ML, and backend systems.',
-      'Built practical applications using Python, APIs, databases, and modern web tools.',
+      'Built Final Year Project focused on Machine Learning - Skin Disease Detection Application.',
+      'Fine-tuned pretrained ResNet50, EfficientNetB3, and MobileNet models for skin disease classification.',
+      'Applied early stopping and regularization, achieving up to 93% validation accuracy.',
+      'Developed a FastAPI inference endpoint for real-time image-based predictions'
     ],
-  },
-  {
-    title: 'AI/ML Projects',
-    company: 'Independent work',
-    dates: '2022 - Present',
-    bullets: [
-      'Explored supervised learning, CNNs, transformers, embeddings, and vector search.',
-      'Turned experiments into clear, deployable portfolio projects and reusable services.',
-    ],
-  },
+  }
 ]
 
 function Experience() {

@@ -18,7 +18,7 @@ function About() {
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">A little about me</h2>
           <div className="mt-6 space-y-3 text-base leading-7 text-zinc-400">
             <p>Recent software engineering grad focused on AI/ML and backend development.</p>
-            <p>I enjoy building RAG chatbots, document QA systems, and ML APIs.</p>
+            <p>I enjoy building RAG chatbots, Machine Learning APIs, and fast Python backends.</p>
             <p>I care about production quality: tests, clean code, and reliable deployment.</p>
             <p>I&apos;m looking for AI/ML or backend engineer roles.</p>
           </div>

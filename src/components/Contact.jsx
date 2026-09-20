@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 
 const socialLinks = [
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anam' },
-  { label: 'GitHub', href: 'https://github.com/anam' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anam-fatima-bhutta/' },
+  { label: 'GitHub', href: 'https://github.com/anambhutta-ab' },
 ]
 
 function Contact() {
@@ -21,7 +21,7 @@ function Contact() {
       <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
         <motion.a
           className="rounded-md bg-teal-400 px-6 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-400"
-          href="mailto:hello@anam.dev"
+          href="mailto:anambhutta15@gmail.com"
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.98 }}
         >
