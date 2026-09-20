@@ -1,0 +1,35 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+  background: #09090b;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #09090b; }
+* { box-sizing: border-box; }
+
+.hero { position: relative; isolation: isolate; }
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 18%;
+  right: 8%;
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid rgba(45, 212, 191, 0.14);
+  border-radius: 9999px;
+  content: '';
+}
+.hero-copy { animation: rise 700ms ease-out both; }
+.hero-button span { margin-left: 0.75rem; transition: margin-left 180ms ease; }
+.hero-button:hover span { margin-left: 1rem; }
+.portfolio-section { scroll-margin-top: 5rem; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .hero::before { top: 12%; right: -8rem; width: 15rem; height: 15rem; }
+}
