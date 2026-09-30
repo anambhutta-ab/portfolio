@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
+import SectionHeading from './SectionHeading'
 
 function About() {
   return (
-    <section className="portfolio-section border-t border-zinc-800 py-24" id="about">
+    <section className="portfolio-section py-24" id="about">
       <motion.div
         className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-12"
         initial={{ opacity: 0, y: 18 }}
@@ -14,8 +15,7 @@ function About() {
           A
         </div>
         <div className="max-w-2xl">
-          <p className="eyebrow text-sm font-medium uppercase tracking-[0.2em] text-teal-400">01 / About</p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">A little about me</h2>
+          <SectionHeading eyebrow="01 / About">A little about me</SectionHeading>
           <div className="mt-6 space-y-3 text-base leading-7 text-zinc-400">
             <p>Recent software engineering grad focused on AI/ML and backend development.</p>
             <p>I enjoy building RAG chatbots, Machine Learning APIs, and fast Python backends.</p>

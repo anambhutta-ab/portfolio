@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
+import NeuralCanvas from './NeuralCanvas'
 
 const textVariants = {
   hidden: { opacity: 0, y: 18 },
@@ -6,99 +7,18 @@ const textVariants = {
 }
 
 function Hero() {
+  const prefersReducedMotion = useReducedMotion()
+
   return (
     <section
       id="top"
-      className="hero relative mx-auto flex min-h-screen max-w-6xl items-center justify-center overflow-hidden px-3 pb-20 pt-32 text-center lg:px-8"
+      className="hero relative flex min-h-screen items-center justify-center overflow-hidden px-3 pb-20 pt-32 text-center"
     >
-      {/* Neural network background */}
-      <svg
-        className="pointer-events-none absolute inset-0 h-300 w-250 opacity-20"
-        viewBox="0 0 800 600"
-        preserveAspectRatio="xMidYMid slice"
-        aria-hidden="true"
-      >
-        
-        {[ 
-          [200, 180, 400, 140], [200, 180, 400, 200], [200, 180, 400, 260],
-          [200, 260, 400, 140], [200, 260, 400, 200], [200, 260, 400, 260], [200, 260, 400, 320],
-          [200, 340, 400, 200], [200, 340, 400, 260], [200, 340, 400, 320], [200, 340, 400, 380],
-          [200, 420, 400, 260], [200, 420, 400, 320], [200, 420, 400, 380], [200, 420, 400, 440],
-          [200, 500, 400, 380], [200, 500, 400, 440], [200, 500, 400, 500],
-        ].map(([x1, y1, x2, y2], i) => (
-          <line
-            key={`in-hid-${i}`}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="#9ca3af"
-            strokeWidth="1"
-            opacity="0.25"
-          />
-        ))}
-
-        {[ 
-          [400, 140, 600, 240], [400, 140, 600, 300],
-          [400, 200, 600, 240], [400, 200, 600, 300],
-          [400, 260, 600, 240], [400, 260, 600, 300], [400, 260, 600, 360],
-          [400, 320, 600, 240], [400, 320, 600, 300], [400, 320, 600, 360],
-          [400, 380, 600, 300], [400, 380, 600, 360],
-          [400, 440, 600, 300], [400, 440, 600, 360], [400, 440, 600, 420],
-          [400, 500, 600, 360], [400, 500, 600, 420],
-        ].map(([x1, y1, x2, y2], i) => (
-          <line
-            key={`hid-out-${i}`}
-            x1={x1}
-            y1={y1}
-            x2={x2}
-            y2={y2}
-            stroke="#9ca3af"
-            strokeWidth="1"
-            opacity="0.25"
-          />
-        ))}
-
-        {/* Nodes: Input layer */}
-        {[180, 260, 340, 420, 500].map((y, i) => (
-          <circle
-            key={`input-${i}`}
-            cx="200"
-            cy={y}
-            r="6"
-            fill="#9ca3af"
-            opacity="0.25"
-          />
-        ))}
-
-        {/* Nodes: Hidden layer */}
-        {[140, 200, 260, 320, 380, 440, 500].map((y, i) => (
-          <circle
-            key={`hidden-${i}`}
-            cx="400"
-            cy={y}
-            r="6"
-            fill="#9ca3af"
-            opacity="0.25"
-          />
-        ))}
-
-        {/* Nodes: Output layer */}
-        {[240, 300, 360, 420].map((y, i) => (
-          <circle
-            key={`output-${i}`}
-            cx="600"
-            cy={y}
-            r="7"
-            fill="#9ca3af"
-            opacity="1"
-          />
-        ))}
-      </svg>
+      <NeuralCanvas />
 
       <motion.div
         className="relative z-10 flex max-w-3xl flex-col items-center"
-        initial="hidden"
+        initial={prefersReducedMotion ? false : 'hidden'}
         animate="visible"
         transition={{ duration: 0.7, ease: 'easeOut' }}
         variants={textVariants}
@@ -106,8 +26,19 @@ function Hero() {
         <p className="eyebrow mb-6 text-base font-medium uppercase tracking-[0.2em] text-teal-400">
           Hello, I&apos;m
         </p>
-        <h1 className="text-6xl font-semibold leading-[1.05] tracking-tight text-zinc-100 sm:text-8xl">
-          Anam
+        <h1 className="hero-title text-7xl font-semibold leading-[1.05] tracking-tight text-zinc-100 sm:text-9xl" aria-label="Anam">
+          {'Anam'.split('').map((letter, index) => (
+            <motion.span
+              aria-hidden="true"
+              className="inline-block"
+              key={letter}
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: prefersReducedMotion ? 0 : 0.35, delay: prefersReducedMotion ? 0 : 0.18 + index * 0.1, ease: 'easeOut' }}
+            >
+              {letter}
+            </motion.span>
+          ))}
         </h1>
         <p className="mt-5 text-xl font-medium text-zinc-300 sm:text-2xl">
           AI/ML &amp; Backend Engineer
@@ -126,7 +57,7 @@ function Hero() {
           </motion.a>
           <motion.a
             className="rounded-md border border-zinc-700 px-6 py-3 text-sm font-semibold text-zinc-200 transition-colors hover:border-teal-400 hover:text-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-400"
-            href="public/cv/Anam_CV 26.pdf"
+            href="/cv/Anam_CV%2026.pdf"
             download
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.98 }}

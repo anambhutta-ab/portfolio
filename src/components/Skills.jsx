@@ -1,4 +1,7 @@
+import { useContext } from 'react'
 import { motion } from 'framer-motion'
+import DataStreamContext from './DataStreamContext'
+import SectionHeading from './SectionHeading'
 
 const skillClusters = [
     {
@@ -34,28 +37,42 @@ const skillClusters = [
 ]
 
 function Skills() {
+    const { activeSkill, selectedSkill, setHoveredSkill, setSelectedSkill } = useContext(DataStreamContext)
+
     return (
-        <section className="portfolio-section border-t border-zinc-800 py-24" id="skills">
+        <section className="portfolio-section py-24" id="skills">
             <motion.div
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
             >
-                <p className="eyebrow text-sm font-medium uppercase tracking-[0.2em] text-teal-400">02 / Skills</p>
-                <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">Tools I use to build</h2>
+                <SectionHeading eyebrow="02 / Skills">Tools I use to build</SectionHeading>
                 <div className="mt-10 grid gap-5 md:grid-cols-3">
                     {skillClusters.map((cluster) => (
                         <motion.article
                             className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6 transition-colors"
                             key={cluster.title}
                             whileHover={{ y: -6, boxShadow: '0 12px 36px rgba(0, 133, 140, 0.12)', borderColor: 'rgba(0, 133, 140, 0.45)' }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            transition={{ duration: 0.1, ease: 'easeOut' }}
                         >
                             <h3 className="text-lg font-semibold text-zinc-100">{cluster.title}</h3>
                             <ul className="mt-5 flex flex-wrap gap-2">
                                 {cluster.skills.map((skill) => (
-                                    <li className="rounded-md border border-zinc-700/80 bg-zinc-950/70 px-3 py-1.5 text-sm text-zinc-400" key={skill}>{skill}</li>
+                                    <li key={skill}>
+                                        <button
+                                            aria-pressed={selectedSkill === skill}
+                                            className={`skill-node rounded-full border px-3 py-1.5 text-left text-sm transition-colors ${activeSkill === skill ? 'is-active' : ''}`}
+                                            onBlur={() => setHoveredSkill(null)}
+                                            onClick={() => setSelectedSkill((selected) => selected === skill ? null : skill)}
+                                            onFocus={() => setHoveredSkill(skill)}
+                                            onMouseEnter={() => setHoveredSkill(skill)}
+                                            onMouseLeave={() => setHoveredSkill(null)}
+                                            type="button"
+                                        >
+                                            {skill}
+                                        </button>
+                                    </li>
                                 ))}
                             </ul>
                         </motion.article>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import SectionHeading from './SectionHeading'
 
 const experiences = [
   {
@@ -37,9 +38,8 @@ const experiences = [
 
 function Experience() {
   return (
-    <section className="portfolio-section border-t border-zinc-800 py-24" id="experience">
-      <p className="eyebrow text-sm font-medium uppercase tracking-[0.2em] text-teal-400">04 / Experience</p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 sm:text-4xl">Where I have worked</h2>
+    <section className="portfolio-section py-24" id="experience">
+      <SectionHeading eyebrow="04 / Experience">Where I have worked</SectionHeading>
       <div className="relative mt-12 ml-3 border-l border-zinc-700/80">
         {experiences.map((experience, index) => (
           <motion.article

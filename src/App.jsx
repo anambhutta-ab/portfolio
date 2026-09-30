@@ -9,6 +9,7 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ProjectCaseStudy from './components/ProjectCaseStudy'
+import ConnectedDataStream from './components/ConnectedDataStream'
 import './App.css'
 
 function ScrollToTop() {
@@ -26,11 +27,13 @@ function Portfolio() {
     <Layout>
       <Hero />
       <div className="section-list mx-auto max-w-6xl px-6 lg:px-8">
+        <ConnectedDataStream>
         <About />
         <Skills />
         <Projects />
         <Experience />
         <Contact />
+        </ConnectedDataStream>
       </div>
       <Footer />
     </Layout>

@@ -42,6 +42,7 @@ function ArchitectureFlow({ steps }) {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45, delay: index * 0.1, ease: 'easeOut' }}
             whileHover={{ y: -4, borderColor: 'rgba(45, 212, 191, 0.7)', boxShadow: '0 12px 30px rgba(45, 212, 191, 0.12)' }}
+            whileTap={{ scale: 0.99 }}
           >
             <span className="mb-3 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-400 text-xs font-bold text-zinc-950">{String(index + 1).padStart(2, '0')}</span>
             <p className="min-w-0 break-words text-sm leading-6 text-zinc-300">{step}</p>
